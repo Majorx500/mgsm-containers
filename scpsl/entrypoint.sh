@@ -1,13 +1,10 @@
 #!/bin/bash
 
-STEAMCMD_DIR="/steamcmd/steamcmd.sh"
+STEAMCMD_DIR="/home/mgsm/steamcmd/steamcmd.sh"
 
-if [ ! -d /data/serverfiles ]; then
-  mkdir /data/serverfiles
+if [ ! -f /data/LocalAdmin ]; then
 
-  $STEAMCMD_DIR +force_install_dir /data/serverfiles/ +login anonymous +app_update $GAMEID validate +exit
+  $STEAMCMD_DIR +force_install_dir /data +login anonymous +app_update $GAMEID validate +exit
 fi
 
-cd serverfiles || exit
-
-./LocalAdmin 7777 yes keep this
+gosu mgsm:mgsm /data/LocalAdmin 7777 yes keep this
