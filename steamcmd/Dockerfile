@@ -7,12 +7,11 @@ RUN apt-get update && apt-get install -y curl wget lib32gcc-s1 gosu tini
 
 COPY --chown=${UID}:${GID} ./entrypoint.sh /opt/steamcmd/
 
+RUN groupadd -r mgsm -g $GID  && useradd -lms /bin/bash -g mgsm -u $UID mgsm && chmod -R +rw /opt/steamcmd
 
-VOLUME [ "/steamcmd" ]
+WORKDIR /home/mgsm/steamcmd
 
-RUN groupadd -r mgsm -g $GID  && useradd -lms /bin/bash -g mgsm -u $UID mgsm && chmod -R +rw /steamcmd && chmod -R +rw /opt/steamcmd
-
-WORKDIR /steamcmd
+RUN curl -sqL "https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz" | tar zxvf -
 
 ENTRYPOINT [ "/usr/bin/tini" ]
 

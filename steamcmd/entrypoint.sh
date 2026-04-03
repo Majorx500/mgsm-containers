@@ -2,6 +2,7 @@
 
 if [[ -f "steamcmd.sh" ]]; then
   echo "SteamCMD found, exiting"
+  ./steamcmd.sh
   exit 0
 fi
 
