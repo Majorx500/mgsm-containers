@@ -11,7 +11,9 @@ RUN groupadd -r mgsm -g $GID  && useradd -lms /bin/bash -g mgsm -u $UID mgsm && 
 
 WORKDIR /home/mgsm/steamcmd
 
-RUN curl -sqL "https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz" | tar zxvf -
+RUN curl -sqL "https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz" | tar zxvf - && ./steamcmd.sh +exit
+
+
 
 ENTRYPOINT [ "/usr/bin/tini" ]
 
