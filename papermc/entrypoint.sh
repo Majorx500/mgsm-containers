@@ -8,7 +8,7 @@ if [[ -e "$MEMORY_SIZE" ]]; then
   JAVA_ARGS="$JAVA_ARGS -Xms$MEMORY_SIZE -Xmx$MEMORY_SIZE"
 fi
 
-if [[ ! -d $base_dir/serverfiles ]]; then
+if [[ ! -f $base_dir/papermc ]]; then
   game_url=$(curl -X 'GET' \
     "https://fill.papermc.io/v3/projects/paper/versions/$GAME_VERSION/builds/latest" \
     -H 'accept: application/json' | jq -r '.downloads."server:default".url')
