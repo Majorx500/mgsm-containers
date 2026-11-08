@@ -8,9 +8,9 @@ if [[ -e "$MEMORY_SIZE" ]]; then
   JAVA_ARGS="$JAVA_ARGS -Xms$MEMORY_SIZE -Xmx$MEMORY_SIZE"
 fi
 
-if [[ ! -f $base_dir/papermc ]]; then
+if [[ ! -f $base_dir/fabricmc.jar ]]; then
 
-  wget "https://meta.fabricmc.net/v2/versions/loader/$GAME_VERSION/0.19.0/1.1.1/server/jar" -O "./fabricmc.jar" 1>/dev/null
+  wget "https://meta.fabricmc.net/v2/versions/loader/$GAME_VERSION/0.20.1/1.1.2/server/jar" -O "./fabricmc.jar" 1>/dev/null
   chmod +x "./fabricmc.jar"
 
   echo "eula=true" >./eula.txt
