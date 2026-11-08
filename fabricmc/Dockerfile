@@ -17,7 +17,7 @@ COPY ./entrypoint.sh /opt/pmcserver/
 
 VOLUME /data
 
-RUN groupadd -r mgsm -g $GID  && useradd -ms /bin/bash -g mgsm -u $UID mgsm && chmod -R a+rw /data && chmod -R a+rw /opt/pmcserver
+RUN groupadd -r mgsm -g $GID  && useradd -ms /bin/bash -g mgsm -u $UID mgsm && chmod -R a+rw /opt/pmcserver
 
 WORKDIR /data
 
