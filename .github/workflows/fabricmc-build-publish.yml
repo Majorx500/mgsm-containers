@@ -1,4 +1,4 @@
-name: Docker Image CI
+name: Build and publish fabricmc
 
 on:
   push:
@@ -34,5 +34,5 @@ jobs:
       with:
         context: fabricmc
         push: true
-        tags: ${{ env.REGISTRY }}/majorx500/fabricmc:latest
+        tags: ${{ env.REGISTRY }}/majorx500/fabricmc-mgsm:latest
       

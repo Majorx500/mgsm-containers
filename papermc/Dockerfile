@@ -3,7 +3,7 @@ FROM eclipse-temurin:21-jdk
 ENV UID=9201
 ENV GID=9201
 
-ENV GAME_VERSION="1.21.10"
+ENV GAME_VERSION="26.3"
 
 ENV MEMORY_SIZE="4G"
 ENV JAVA_ARGS="-XX:+UseContainerSupport"
@@ -18,7 +18,7 @@ COPY ./entrypoint.sh /opt/pmcserver/
 VOLUME /data
 
 
-RUN groupadd -r mgsm -g $GID  && useradd -ms /bin/bash -g mgsm -u $UID mgsm && chmod -R a+rw /data/ && chmod -R a+rw /opt/pmcserver
+RUN groupadd -r mgsm -g $GID  && useradd -ms /bin/bash -g mgsm -u $UID mgsm && chmod -R a+rw /opt/pmcserver
 
 WORKDIR /data
 
